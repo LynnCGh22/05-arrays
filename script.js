@@ -1,8 +1,4 @@
-// Set up event listener for when the user selects a genre
-document.getElementById("genre").addEventListener("change", function() {
-  // Get the selected genre
-  const selectedGenre = document.getElementById("genre").value;
-  // Movie arrays for each genre
+// Movie arrays for each genre
 const comedyMovies = [
   "Superbad",
   "The Grand Budapest Hotel",
@@ -34,31 +30,24 @@ const sciFiMovies = [
 // Set up event listener for when the user selects a genre
 document.getElementById("genre").addEventListener("change", function() {
 
+  // Get the selected genre
   const selectedGenre = document.getElementById("genre").value;
 
-  if (selectedGenre === "Comedy") {
-    console.log(comedyMovies);
-  } else if (selectedGenre === "Action") {
-    console.log(actionMovies);
-  } else if (selectedGenre === "Drama") {
-    console.log(dramaMovies);
-  } else if (selectedGenre === "Sci-Fi") {
-    console.log(sciFiMovies);
-  }
+  // Create movie list array
+  let movieList = [];
 
-  document.getElementById("movieRecommendations").innerText = `Enjoy: !`;
-});
-  // Add movies to the movieList based on the selected genre
+  // Assign movies to movieList based on genre
   if (selectedGenre === "Comedy") {
-    console.log("You selected 'Comedy'");
+    movieList = comedyMovies;
   } else if (selectedGenre === "Action") {
-    console.log("You selected 'Action'");
+    movieList = actionMovies;
   } else if (selectedGenre === "Drama") {
-    console.log("You selected 'Drama'");
+    movieList = dramaMovies;
   } else if (selectedGenre === "Sci-Fi") {
-    console.log("You selected 'Sci-Fi'");
+    movieList = sciFiMovies;
   }
 
   // Display the list of movies on the page
-  document.getElementById("movieRecommendations").innerText = `Enjoy: !`;
+  document.getElementById("movieRecommendations").innerText =
+    `Enjoy: ${movieList.join(", ")}!`;
 });
